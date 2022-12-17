@@ -46,7 +46,11 @@
             flowChart:true,
             sequenceDiagram:true,
             syncScrolling:"single",
-            path:"../editor_md/lib/"
+            path:"../editor_md/lib/",
+            fullscreen:true,
+            onload:function(){
+                this.fullscreen();//全屏（按ESC取消）
+            }
         });
     });
 </script>
