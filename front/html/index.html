@@ -13,14 +13,32 @@
     </div>
 </body>
 <script type="text/javascript">
+    var res;
+    $.ajaxSettings.async = false;  //设为同步请求
+    var json_data = function(){$.getJSON("../../settings.json", function(data){
+        
+        // console.log(data["editor_md"]);
+        res = data["editor_md"];  
+        // return res;
+        });
+        // console.log("test " + res["theme"]);
+        
+        return res;
+    };
+
+    // console.log("test " + editor_md_settings ["theme"]);
+
     var contentEditor;
     $(function(){
+        json_data = json_data();
+        // console.log("a: "+a)
         contentEditor = editormd("md-content",{
             width : "100%",
-            height:640,
-            theme:"dark", //工具栏主题
-            previewTheme:"dark",//预览主题
-            editorTheme:"pastel-on-dark",//编辑主题
+            height:"800px",
+            placeholder:"开始您的创作",
+            theme:json_data["theme"], //工具栏主题
+            previewTheme:json_data["previewTheme"],//预览主题
+            editorTheme:json_data["editorTheme"],//编辑主题
             saveHTMLToTextarea:true,
             taskList:true,
             tocm:true,

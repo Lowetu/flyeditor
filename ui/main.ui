@@ -39,6 +39,12 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="minimumSize">
+           <size>
+            <width>400</width>
+            <height>602</height>
+           </size>
+          </property>
           <property name="url">
            <url>
             <string>about:blank</string>
