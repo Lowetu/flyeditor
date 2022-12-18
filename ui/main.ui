@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>588</height>
+    <height>719</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,7 @@
        <number>0</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,2,7">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,2,6">
         <property name="spacing">
          <number>0</number>
         </property>

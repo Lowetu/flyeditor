@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(700, 588)
+        MainWindow.resize(700, 719)
         self.actionNew_File = QAction(MainWindow)
         self.actionNew_File.setObjectName(u"actionNew_File")
         self.actionNew_Folder = QAction(MainWindow)
@@ -71,9 +71,9 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2.addWidget(self.index_web_view)
 
-        self.horizontalLayout_2.setStretch(0, 1)
+        self.horizontalLayout_2.setStretch(0, 2)
         self.horizontalLayout_2.setStretch(1, 2)
-        self.horizontalLayout_2.setStretch(2, 7)
+        self.horizontalLayout_2.setStretch(2, 6)
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
