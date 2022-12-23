@@ -66,7 +66,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.index_web_view.sizePolicy().hasHeightForWidth())
         self.index_web_view.setSizePolicy(sizePolicy)
-        self.index_web_view.setMinimumSize(QSize(400, 602))
+        self.index_web_view.setMinimumSize(QSize(0, 0))
         self.index_web_view.setUrl(QUrl(u"about:blank"))
 
         self.horizontalLayout_2.addWidget(self.index_web_view)

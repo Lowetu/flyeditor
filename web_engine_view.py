@@ -2,7 +2,7 @@ import os
 import pathlib
 import time
 
-from PySide6.QtCore import QUrl
+from PySide6.QtCore import QUrl, QSize
 from PySide6.QtGui import QStandardItemModel, QStandardItem, QGuiApplication
 from PySide6.QtWidgets import QMainWindow, QApplication
 from PySide6.QtGui import QResizeEvent
@@ -23,7 +23,8 @@ class MainWindow(QMainWindow):
         self.setWindowTitle(u"Fly Editor--fly with you idea")
         self.browser = self.ui.index_web_view
         self.full_screen_flag = False
-        self.setGeometry(5, 30, 400, 400)
+        # self.setGeometry(5, 30, 400, 400)
+        self.maximumSize()
         self.url = os.getcwd() + '/front/html/index.html'
         self.screen = QGuiApplication.primaryScreen().geometry()
         self.resize(self.screen.width(), self.screen.height())
@@ -51,11 +52,6 @@ class MainWindow(QMainWindow):
         if os.path.exists('temp'):
             os.remove('temp')
 
-    def resizeEvent(self, event: QResizeEvent) -> None:
-        """重写resize事件，实现webview跟随控件变化而变化"""
-        super().resizeEvent(event)
-        self.browser.resize(self.width(), self.height())
-
     def show_two_col(self):
         """
         显示两栏：文件夹和编辑器
@@ -64,7 +60,8 @@ class MainWindow(QMainWindow):
         self.btn_twoCol.hide()
         self.directory_tree.show()
         self.btn_threeCol.show()
-        self.browser.resize(self.width(), self.height())
+
+        self.browser.setZoomFactor(1.3)
 
     def show_three_col(self):
         """
@@ -76,7 +73,8 @@ class MainWindow(QMainWindow):
         self.file_list.show()
         self.directory_tree.show()
         self.btn_threeCol.hide()
-        self.browser.resize(self.width(), self.height())
+
+        self.browser.setZoomFactor(1.0)
 
     def run_js_get_content(self, content_type):
         """运行js，获取markdown内容"""
@@ -104,14 +102,14 @@ class MainWindow(QMainWindow):
             self.file_list.hide()
             self.directory_tree.hide()
             self.full_screen_flag = True
+
+            self.browser.setZoomFactor(1.7)
         else:
             self.btn_fullScreen.setText("全屏")
 
             self.show_three_col()
             self.full_screen_flag = False
-
-        self.browser.resize(self.width(), self.height())
-
+            self.browser.setZoomFactor(1.0)
 
     def directory_tree_test(self):
         """
